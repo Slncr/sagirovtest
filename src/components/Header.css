@@ -1,0 +1,136 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: darkgray;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 8vh;
+}
+.logo {
+    position: relative;
+    bottom: 5px;
+}
+
+.nav-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 40px;
+    right: 179px;
+}
+
+.nav-toggler div {
+    width: 25px;
+    height: 2px;
+    margin: 0.4rem;
+    background: rgb(204, 204, 204);
+    transition: 0.3s ease-in;
+}
+
+.nav-toggler {
+    cursor: pointer;
+    display: none;
+}
+
+/* .nav-item {
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .nav-item:hover::before {
+    opacity: 1;
+  } */
+
+  .nav-item {
+	position: relative;
+	cursor: pointer;
+	line-height: 1; 
+	text-decoration: none; 
+
+}
+.nav-item:after {
+	display: block;
+	position: absolute;
+    margin-top: 5px;
+	left: 0; 
+	width: 0;
+	height: 2px; 
+	background-color: darkgray; 
+	content: "";
+	transition: width 0.1s ease-out; 
+}
+
+.nav-item:hover:after,
+.nav-item:focus:after {
+	width: 100%; 
+}
+  
+
+/* .nav-item::before {
+    background: radial-gradient(
+      800px circle at var(--mouse-x) var(--mouse-y),
+      rgba(255, 255, 255, 0.6),
+      transparent 40%
+      );
+      
+    border-radius: inherit;
+    content: '';
+    height: 100%;
+    left: 0px;
+    opacity: 0;
+    transition: opacity 500ms;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 2;
+  } */
+
+
+
+
+@media screen and (max-width: 767px) {
+    .nav-toggler {
+        display: block;
+    }
+    .nav-menu {
+        position: fixed;
+        top: 10vh;
+        right: 0;
+        width: 50%;
+        height: 43vh;
+        background: transparent;
+        flex-direction: column;
+        transform: translateX(100%);
+    }
+}
+
+.nav-active {
+    transform: translateX(0);
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-4px, 5.5px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-6px, -8px);
+}
